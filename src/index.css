@@ -1,0 +1,38 @@
+.navbar_link a {
+    padding-bottom: 0.2rem;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.navbar_link a:hover {
+    color: #3182ce;
+}
+
+.navbar_link a.active {
+    color: #3182ce;
+}
+
+.navbar_link a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 50%;
+    height: 1px;
+    background-color: #3182ce;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .navbar_link a.active::after {
+        width: 0;
+    }
+}
+
+body {
+    min-height: 2000px;
+}
