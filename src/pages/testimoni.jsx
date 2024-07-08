@@ -1,9 +1,7 @@
-import {Flex} from "@chakra-ui/react";
+import TestimoniLayout from "../layouts/TestimoniLayout.jsx";
 
 export default function TestimoniPage(){
     return(
-        <Flex as='section' w='100%' h='100vh' alignItems='center' justifyContent='center'>
-            <h1>Testimoni</h1>
-        </Flex>
+        <TestimoniLayout/>
     )
 }

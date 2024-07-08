@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './index.css'
+import 'animate.css'
 import {ChakraProvider} from '@chakra-ui/react';
 import {createRoot} from 'react-dom/client';
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";

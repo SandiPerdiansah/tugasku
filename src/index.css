@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 .navbar_link a {
     padding-bottom: 0.2rem;
     position: relative;
@@ -31,8 +35,4 @@
     .navbar_link a.active::after {
         width: 0;
     }
-}
-
-body {
-    min-height: 2000px;
 }

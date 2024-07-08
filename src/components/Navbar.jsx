@@ -1,4 +1,4 @@
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Link, NavLink} from "react-router-dom";
 import {HamburgerIcon} from "@chakra-ui/icons";
 import {
@@ -18,6 +18,8 @@ import {data} from "../services/data.js";
 
 export default function Navbar() {
     const {isOpen, onToggle} = useDisclosure();
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     const isMobile = useBreakpointValue({base: true, lg: false});
     const navRef = useRef();
 
@@ -34,10 +36,23 @@ export default function Navbar() {
             document.removeEventListener("mousedown", handleClickOutside);
         }
 
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY) {
+                setShowNavbar(false);  // Hide navbar when scrolling down
+            } else {
+                setShowNavbar(true);  // Show navbar when scrolling up
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, [isOpen, onToggle]);
+    }, [isOpen, onToggle, lastScrollY]);
 
     return (
         <Box
@@ -45,11 +60,13 @@ export default function Navbar() {
             w='100%'
             boxShadow='sm'
             pos='fixed'
-            top='0'
+            top={showNavbar ? '0' : '-6rem'}
             left='0'
             right='0'
             zIndex='999'
             color='font'
+            className='animate__animated animate__fadeInDown'
+            transition='top 0.3s'
         >
             <HStack
                 as='nav'
