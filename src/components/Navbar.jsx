@@ -15,7 +15,6 @@ import {
     useDisclosure
 } from "@chakra-ui/react";
 import {data} from "../services/data.js";
-import logo from '/assets/images/logo.png'
 
 export default function Navbar() {
     const {isOpen, onToggle} = useDisclosure();
@@ -123,7 +122,7 @@ const NavbarBand = () => {
                 <Image
                     boxSize={{base: '30px', lg: '40px'}}
                     borderRadius='full'
-                    src={`${logo}`}
+                    src='/assets/images/logo.png'
                     alt='Tugasku Logo'
                     objectFit='cover'
                 />
