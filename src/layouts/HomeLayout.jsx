@@ -1,5 +1,6 @@
 import {Button, Flex, Heading, Image, Text, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
+import learning from '/assets/images/learning.svg';
 
 export default function HomeLayout() {
     return (
@@ -15,7 +16,7 @@ export default function HomeLayout() {
         >
             <Image
                 boxSize={{base: '15rem', lg: '20rem'}}
-                src='./public/assets/images/learning.svg'
+                src={`${learning}`}
                 alt='Learning animation'
             />
 
