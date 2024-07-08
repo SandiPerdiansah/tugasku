@@ -1,7 +1,7 @@
-import OrderLayout from "../layouts/OrderLayout.jsx";
+import OrdersLayout from "../layouts/OrdersLayout.jsx";
 
 export default function OrdersPage(){
     return(
-        <OrderLayout/>
+        <OrdersLayout/>
     )
 }

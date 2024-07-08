@@ -1,9 +1,10 @@
-import {Button, Flex, Heading, Image, Text, VStack} from "@chakra-ui/react";
+import {Button, Flex, Heading, HStack, Image, Text, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import AboutLayout from "./AboutLayout.jsx";
 import ServiveLayout from "./ServiveLayout.jsx";
-import OrderLayout from "./OrderLayout.jsx";
+import OrdersLayout from "./OrdersLayout.jsx";
 import TestimoniLayout from "./TestimoniLayout.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default function HomeLayout() {
     return (
@@ -34,7 +35,7 @@ export default function HomeLayout() {
                         as='h1'
                         fontWeight='bold'
                         fontSize={{base: '2xl', lg: '4xl'}}
-                        color='blue.600'
+                        color='primary'
                         lineHeight={1.5}
                         className='animate__animated animate__fadeInRight animate__delay-1s'
                     >
@@ -44,27 +45,44 @@ export default function HomeLayout() {
                         fontSize={{base: '1rem', lg: 'lg'}}
                         className='animate__animated animate__fadeInRight animate__delay-1s'
                     >
-                        <strong>Tugasku</strong> adalah mitra terpercaya untuk menyelesaikan berbagai tugas kuliah dengan cepat dan efisien.
+                        <strong>Tugasku</strong> adalah mitra terpercaya untuk menyelesaikan berbagai tugas kuliah
+                        dengan cepat dan efisien.
                     </Text>
-                    <Button
-                        colorScheme='blue'
-                        size='md'
-                        rel='noopener noreferrer'
-                        aria-label='Lihat lebih lanjut tentang Joki Tugas'
-                        borderRadius='20px'
-                        px='4'
-                        py='3'
+                    <HStack
+                        role='group'
                         className='animate__animated animate__fadeInUp animate__delay-2s'
                     >
-                        <Link to='tentang-kami'>Lihat Selengkapnya</Link>
-                    </Button>
+                        <Button
+                            as={Link}
+                            to='tentang-kami'
+                            variant='outline'
+                            colorScheme='blue'
+                            borderRadius='20px'
+                            aria-label='Selengkapnya tentang kami'
+                            w={{base: '100%', lg: 'auto'}}
+                        >
+                            Selengkapnya
+                        </Button>
+                        <Button
+                            as={Link}
+                            to='order'
+                            target='_blank'
+                            variant='customBlue'
+                            borderRadius='20px'
+                            aria-label='Order Sekarang'
+                            w={{base: '100%', lg: 'auto'}}
+                        >
+                            Order Sekarang
+                        </Button>
+                    </HStack>
                 </VStack>
             </Flex>
 
             <AboutLayout/>
             <ServiveLayout/>
             <TestimoniLayout/>
-            <OrderLayout/>
+            <OrdersLayout/>
+            <Footer/>
         </>
     );
 }

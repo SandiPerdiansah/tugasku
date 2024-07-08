@@ -39,9 +39,9 @@ export default function Navbar() {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             if (currentScrollY > lastScrollY) {
-                setShowNavbar(false);  // Hide navbar when scrolling down
+                setShowNavbar(false);
             } else {
-                setShowNavbar(true);  // Show navbar when scrolling up
+                setShowNavbar(true);
             }
             setLastScrollY(currentScrollY);
         };
@@ -67,6 +67,7 @@ export default function Navbar() {
             color='font'
             className='animate__animated animate__fadeInDown'
             transition='top 0.3s'
+            boxSizing="border-box"
         >
             <HStack
                 as='nav'
@@ -86,7 +87,7 @@ export default function Navbar() {
                             alignItems='center'
                             justifyContent='center'
                             position={{base: 'absolute', lg: 'static'}}
-                            top={{base: '3.8rem', lg: '0'}}
+                            top={{base: '3.6rem', lg: '0'}}
                             left='0'
                             right='0'
                             w={{base: '100%', lg: 'auto'}}
@@ -177,24 +178,17 @@ const NavbarLink = ({onClick}) => {
 };
 
 const NavbarButton = () => {
-    const phoneNumber = '6281573617686';
-    const message = 'Halo, saya ingin memesan jasa joki!';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
     return (
         <Button
-            as='a'
-            href={whatsappUrl}
             colorScheme='blue'
             size='sm'
-            target='_blank'
             rel='noopener noreferrer'
             aria-label='Order via WhatsApp'
             borderRadius='20px'
             p='1.2rem 1rem'
             mt={{base: '1rem', lg: '0'}}
         >
-            Order Sekarang
+            <Link to='order' target={'_blank'}>Order Sekarang</Link>
         </Button>
     );
 };

@@ -15,6 +15,7 @@ import AboutPage from "./pages/about.jsx";
 import ServicePage from "./pages/service.jsx";
 import OrdersPage from "./pages/orders.jsx";
 import TestimoniPage from "./pages/testimoni.jsx";
+import OrderPage from "./pages/order.jsx";
 
 // Create router
 const router = createBrowserRouter(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
             <Route path='tentang-kami' element={<ServicePage/>}/>
             <Route path='testimoni' element={<TestimoniPage/>}/>
             <Route path='cara-order' element={<OrdersPage/>}/>
+            <Route path='order' element={<OrderPage/>}/>
         </Route>
     )
 );
