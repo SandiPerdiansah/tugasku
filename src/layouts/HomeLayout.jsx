@@ -38,7 +38,7 @@ export default function HomeLayout() {
                         fontSize={{base: '2xl', lg: '4xl'}}
                         color='primary'
                         lineHeight={1.7}
-                        className='animate__animated animate__fadeInRight animate__delay-1s'
+                        className='animate__animated animate__fadeInDown animate__delay-1s'
                     >
                         Joki Tugas Solusi Cerdas untuk Melepas Terhalangnya Pendidikanmu
                     </Heading>
@@ -46,7 +46,7 @@ export default function HomeLayout() {
                         fontSize={{base: '1rem', lg: 'lg'}}
                         color='font'
                         lineHeight={1.7}
-                        className='animate__animated animate__fadeInRight animate__delay-1s'
+                        className='animate__animated animate__fadeInDown animate__delay-1s'
                     >
                         <strong>Tugasku</strong> adalah mitra terpercaya untuk menyelesaikan berbagai tugas kuliah
                         dengan cepat dan efisien.

@@ -19,17 +19,10 @@ import {data} from "../services/data.js";
 export default function Navbar() {
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const [isLoaded, setIsloaded] = useState(false);
     const navRef = useRef();
 
     const {isOpen, onToggle} = useDisclosure();
     const isMobile = useBreakpointValue({base: true, lg: false});
-
-    useEffect(() => {
-        setTimeout(() => {
-            setIsloaded(true)
-        }, 500)
-    }, []);
 
 
     useEffect(() => {
@@ -75,7 +68,7 @@ export default function Navbar() {
             zIndex='999'
             color='font'
             transition='all 0.3s'
-            style={{transform: !isLoaded ? 'translateY(-100%)' : 'translateY(0)'}}
+            className='animate__animated animate__fadeInDown'
         >
             <HStack
                 as='nav'

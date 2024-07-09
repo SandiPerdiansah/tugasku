@@ -1,6 +1,5 @@
 import {Box, Flex, Heading, Image, Stack, Text, VStack} from "@chakra-ui/react";
 
-
 export default function AboutLayout() {
     return (
         <VStack
@@ -24,11 +23,13 @@ export default function AboutLayout() {
                     src='/assets/images/team.svg'
                     alt='Team animation'
                     aria-hidden='true'
-                    data-aos='fade-up'
+                    data-aos='zoom-in'
+                    data-aos-duration='1000'
                 />
                 <Box
                     textAlign={{base: 'center', lg: 'start'}}
-                    data-aos='fade-left'
+                    data-aos='zoom-in'
+                    data-aos-duration='1000'
                 >
                     <Heading
                         as='h1'
@@ -91,7 +92,8 @@ export default function AboutLayout() {
                             src='/assets/images/notebook.svg'
                             alt='Notebook animation'
                             aria-label='Notebook Image Animation'
-                            data-aos='fade-up'
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
                         />
                         <Heading
                             as='h1'
@@ -100,9 +102,10 @@ export default function AboutLayout() {
                             color='primary'
                             lineHeight={1.7}
                             aria-label='Bingun Dengan Tugas Tapi Tidak Punya Banyak Waktu ?'
-                            data-aos='fade-left'
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
                         >
-                            Bingun Dengan Tugas Tapi Tidak Punya Banyak Waktu ?
+                            Bingung Dengan Tugas Tapi Tidak Punya Banyak Waktu ?
                         </Heading>
                     </Flex>
                     <Flex
@@ -121,9 +124,10 @@ export default function AboutLayout() {
                             lineHeight={1.7}
                             order={{base: 2, lg: 1}}
                             aria-labelledby="tugas-heading"
-                            data-aos='fade-left'
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
                         >
-                            Gereget Di Kejar-kejar Deadline ?
+                            Gereget Di Kejar Deadline ?
                         </Heading>
                         <Image
                             boxSize={{base: '15rem', lg: '24rem'}}
@@ -131,7 +135,8 @@ export default function AboutLayout() {
                             alt='Deadline animation'
                             order={{base: 1, lg: 2}}
                             aria-label='Deadline Image Animation'
-                            data-aos='fade-up'
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
                         />
                     </Flex>
                     <Flex
@@ -146,9 +151,13 @@ export default function AboutLayout() {
                             src='/assets/images/cofee.svg'
                             alt='Coffee animation'
                             aria-label='Coffee Image Animation'
-                            data-aos='fade-up'
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
                         />
-                        <Box data-aos='fade-left'>
+                        <Box
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
+                        >
                             <Heading
                                 as='h1'
                                 fontWeight='bold'
@@ -177,7 +186,11 @@ export default function AboutLayout() {
                         textAlign={{base: 'center', lg: 'start'}}
                         my='2rem'
                     >
-                        <Box order={{base: 2, lg: 1}} data-aos='fade-left'>
+                        <Box
+                            order={{base: 2, lg: 1}}
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
+                        >
                             <Heading
                                 as='h1'
                                 fontWeight='bold'
@@ -205,7 +218,8 @@ export default function AboutLayout() {
                             alt='Status animation'
                             order={{base: 1, lg: 2}}
                             aria-label='Status Image Animation'
-                            data-aos='fade-up'
+                            data-aos='zoom-in'
+                            data-aos-duration='1000'
                         />
                     </Flex>
                 </Box>
