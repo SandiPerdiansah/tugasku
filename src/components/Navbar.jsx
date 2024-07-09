@@ -17,11 +17,20 @@ import {
 import {data} from "../services/data.js";
 
 export default function Navbar() {
-    const {isOpen, onToggle} = useDisclosure();
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const isMobile = useBreakpointValue({base: true, lg: false});
+    const [isLoaded, setIsloaded] = useState(false);
     const navRef = useRef();
+
+    const {isOpen, onToggle} = useDisclosure();
+    const isMobile = useBreakpointValue({base: true, lg: false});
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsloaded(true)
+        }, 500)
+    }, []);
+
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -65,9 +74,8 @@ export default function Navbar() {
             right='0'
             zIndex='999'
             color='font'
-            className='animate__animated animate__fadeInDown'
-            transition='top 0.3s'
-            boxSizing="border-box"
+            transition='all 0.3s'
+            style={{transform: !isLoaded ? 'translateY(-100%)' : 'translateY(0)'}}
         >
             <HStack
                 as='nav'
@@ -180,15 +188,19 @@ const NavbarLink = ({onClick}) => {
 const NavbarButton = () => {
     return (
         <Button
+            as={Link}
+            to='order'
+            target='_blank'
             colorScheme='blue'
             size='sm'
             rel='noopener noreferrer'
             aria-label='Order via WhatsApp'
+            role='button'
             borderRadius='20px'
             p='1.2rem 1rem'
             mt={{base: '1rem', lg: '0'}}
         >
-            <Link to='order' target={'_blank'}>Order Sekarang</Link>
+            Order Sekarang
         </Button>
     );
 };

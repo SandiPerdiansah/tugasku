@@ -20,9 +20,10 @@ export default function HomeLayout() {
                 p={{base: '0 1.4rem', lg: '0 4rem'}}
             >
                 <Image
-                    boxSize={{base: '15rem', lg: '20rem'}}
+                    boxSize={{base: '15rem', lg: '24rem'}}
                     src='/assets/images/learning.svg'
                     alt='Learning animation'
+                    aria-describedby='learning-desc'
                     className='animate__animated animate__fadeInDown animate__delay-1s'
                 />
 
@@ -36,13 +37,15 @@ export default function HomeLayout() {
                         fontWeight='bold'
                         fontSize={{base: '2xl', lg: '4xl'}}
                         color='primary'
-                        lineHeight={1.5}
+                        lineHeight={1.7}
                         className='animate__animated animate__fadeInRight animate__delay-1s'
                     >
                         Joki Tugas Solusi Cerdas untuk Melepas Terhalangnya Pendidikanmu
                     </Heading>
                     <Text
                         fontSize={{base: '1rem', lg: 'lg'}}
+                        color='font'
+                        lineHeight={1.7}
                         className='animate__animated animate__fadeInRight animate__delay-1s'
                     >
                         <strong>Tugasku</strong> adalah mitra terpercaya untuk menyelesaikan berbagai tugas kuliah
@@ -59,6 +62,7 @@ export default function HomeLayout() {
                             colorScheme='blue'
                             borderRadius='20px'
                             aria-label='Selengkapnya tentang kami'
+                            role='button'
                             w={{base: '100%', lg: 'auto'}}
                         >
                             Selengkapnya
@@ -70,6 +74,7 @@ export default function HomeLayout() {
                             variant='customBlue'
                             borderRadius='20px'
                             aria-label='Order Sekarang'
+                            role='button'
                             w={{base: '100%', lg: 'auto'}}
                         >
                             Order Sekarang

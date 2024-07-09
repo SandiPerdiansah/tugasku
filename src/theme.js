@@ -14,7 +14,7 @@ const theme = extendTheme({
             200: '#80bfff',
             300: '#4da5ff',
             400: '#1a8aff',
-            500: '#3182ce', // Primary color
+            500: '#3182ce',
             600: '#2769a3',
             700: '#1e5079',
             800: '#13364f',

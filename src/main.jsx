@@ -5,6 +5,11 @@ import {ChakraProvider} from '@chakra-ui/react';
 import {createRoot} from 'react-dom/client';
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 
+// Aos
+import Aos from "aos";
+import 'aos/dist/aos.css';
+Aos.init();
+
 // theme
 import theme from "./theme.js";
 
@@ -22,8 +27,8 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<RootLayout/>}>
             <Route index element={<HomePage/>}/>
-            <Route path='layanan-kami' element={<AboutPage/>}/>
-            <Route path='tentang-kami' element={<ServicePage/>}/>
+            <Route path='tentang-kami' element={<AboutPage/>}/>
+            <Route path='layanan-kami' element={<ServicePage/>}/>
             <Route path='testimoni' element={<TestimoniPage/>}/>
             <Route path='cara-order' element={<OrdersPage/>}/>
             <Route path='order' element={<OrderPage/>}/>
