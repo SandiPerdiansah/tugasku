@@ -99,7 +99,7 @@ export const TestimoniLayout = () => {
                     handleSubmitForm={handleSubmitForm}
                     clickedStars={clickedStars}
                     setClickedStars={setClickedStars}
-                    succes={succesSubmit}
+                    success={succesSubmit}
                     isAlert={isAlert}
                 />
 

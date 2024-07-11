@@ -16,13 +16,7 @@ import {
 } from "@chakra-ui/react";
 import {StarIcon} from "@chakra-ui/icons";
 
-export const TestimoniForm = ({
-                                  handleSubmitForm,
-                                  clickedStars,
-                                  setClickedStars,
-                                  success,
-                                  isAlert
-                              }) => {
+export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, success, isAlert}) => {
     const [selectService, setSelectService] = useState([]);
     const [hoveredStars, setHoveredStars] = useState(0);
 
@@ -161,6 +155,10 @@ export const TestimoniForm = ({
                         w='100%'
                         mt='1rem'
                         aria-label='Kirim'
+                        isLoading={success}
+                        loadingText='Loading'
+                        _hover={{bg: 'primary'}}
+                        aria-live="polite"
                     >
                         Kirim
                     </Button>
@@ -171,12 +169,12 @@ export const TestimoniForm = ({
                         w='100%'
                         mt='1rem'
                         aria-label='Kirim'
-                        isLoading
+                        isLoading={success}
                         loadingText='Loading'
                         _hover={{bg: 'primary'}}
                         aria-live="polite"
                     >
-                        loading..
+                        Loading...
                     </Button>
                 )}
             </FormControl>
