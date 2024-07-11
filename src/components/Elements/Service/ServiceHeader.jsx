@@ -1,4 +1,4 @@
-import {Flex, Heading, Image} from "@chakra-ui/react";
+import {Box, Flex, Heading, Image, Text} from "@chakra-ui/react";
 
 export const ServiceHeader = () => {
     return(
@@ -9,21 +9,35 @@ export const ServiceHeader = () => {
             alignItems='center'
             justifyContent='center'
             flexDirection={{base: 'column', lg: 'row'}}
+            gap={{lg:'2rem'}}
         >
-            <Heading
-                as='h1'
-                id='service-layout-heading'
-                fontWeight='bold'
-                fontSize={{base: '2xl', lg: '4xl'}}
-                color='primary'
-                lineHeight={1.7}
-                textAlign={{base: 'center', lg: 'start'}}
-                order={{base: 2, lg: 1}}
-                data-aos='zoom-in'
-                data-aos-duration='1000'
-            >
-                Kami melayani berbagai jenis tugas mata kuliah dengan profesionalisme dan kualitas terbaik.
-            </Heading>
+           <Box>
+               <Heading
+                   as='h1'
+                   id='service-layout-heading'
+                   fontWeight='bold'
+                   fontSize={{base: '2xl', lg: '4xl'}}
+                   color='primary'
+                   lineHeight={1.7}
+                   textAlign={{base: 'center', lg: 'start'}}
+                   order={{base: 2, lg: 1}}
+                   data-aos='zoom-in'
+                   data-aos-duration='1000'
+               >
+                   Kami melayani berbagai jenis tugas mata kuliah dengan profesionalisme dan kualitas terbaik.
+               </Heading>
+               <Text
+                   mb='4'
+                   color='font'
+                   fontSize={{base: '1rem', lg: 'lg'}}
+                   lineHeight={1.7}
+                   textAlign={{base:'center', lg:'start'}}
+                   data-aos='zoom-in'
+                   data-aos-duration='1000'
+               >
+                   Dengan pengerjaan Tim membuat pengerjaan tugas anda menjadi lebih cepat dan efisien
+               </Text>
+           </Box>
             <Image
                 boxSize={{base: '15rem', lg: '24rem'}}
                 src='/assets/images/services.svg'

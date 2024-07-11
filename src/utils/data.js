@@ -12,13 +12,13 @@ export const data = {
         },
         {
             id: 3,
-            teks: 'Testimoni',
-            path: 'testimoni'
+            teks: 'Cara Order',
+            path: 'cara-order'
         },
         {
             id: 4,
-            teks: 'Cara Order',
-            path: 'cara-order'
-        }
+            teks: 'Testimoni',
+            path: 'testimoni'
+        },
     ]
 }

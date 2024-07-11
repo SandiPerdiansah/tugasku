@@ -33,8 +33,8 @@ export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, 
 
     return (
         <VStack
-            flexBasis='50%'
-            p={{base: '1.4rem', lg: '4rem'}}
+            flexBasis={{base:'100%', lg:'40%'}}
+            p={{base: '1.4rem', lg: '3rem'}}
             shadow='md'
             borderRadius='lg'
         >

@@ -26,8 +26,8 @@ export const HomeLayout = () => {
 
             <AboutLayout/>
             <ServiceLayout/>
-            <TestimoniLayout/>
             <HowToOrderLayouts/>
+            <TestimoniLayout/>
             <Footer/>
         </>
     );
