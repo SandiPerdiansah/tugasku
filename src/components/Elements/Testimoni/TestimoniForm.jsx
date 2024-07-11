@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {API_SERVICES} from "../../../services/API_SERVICES.js";
 import {
-    Box, Button,
+    Box,
+    Button,
     FormControl,
     FormLabel,
     Heading,
@@ -15,25 +16,33 @@ import {
 } from "@chakra-ui/react";
 import {StarIcon} from "@chakra-ui/icons";
 
-export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes, isAlert}) => {
+export const TestimoniForm = ({
+                                  handleSubmitForm,
+                                  clickedStars,
+                                  setClickedStars,
+                                  success,
+                                  isAlert
+                              }) => {
     const [selectService, setSelectService] = useState([]);
     const [hoveredStars, setHoveredStars] = useState(0);
 
     useEffect(() => {
-        (async () => {
+        const fetchServices = async () => {
             try {
                 const response = await API_SERVICES();
                 const options = response.services.map(data => data.name);
                 setSelectService(options);
-            } catch (e) {
-                console.log(`Error: ${e.message}`);
+            } catch (error) {
+                console.error(`Error fetching services: ${error.message}`);
             }
-        })();
+        };
+
+        fetchServices();
     }, []);
 
     return (
         <VStack
-            flexBasis={{base:'100%', lg:'40%'}}
+            flexBasis={{base: '100%', lg: '40%'}}
             p={{base: '1.4rem', lg: '3rem'}}
             shadow='md'
             borderRadius='lg'
@@ -54,7 +63,7 @@ export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, 
                 textAlign='center'
                 id="tokenDescription"
             >
-                Token didapatkan setelah anda selesai melakukan order Jasa di <strong>Tugasku</strong>
+                Token didapatkan setelah Anda selesai melakukan order Jasa di <strong>Tugasku</strong>
             </Text>
 
             <FormControl as='form' isRequired onSubmit={(e) => handleSubmitForm(e)} aria-labelledby="form-title">
@@ -112,7 +121,7 @@ export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, 
                     />
                 </Box>
                 <VStack mt='1rem' border='1px solid #ddd' p='1rem' borderRadius='lg'>
-                    <FormLabel htmlFor='rating' textAlign='center'>
+                    <FormLabel id="rating" htmlFor='rating' textAlign='center'>
                         Berikan bintang sebagai tingkat kepuasan order di <strong>Tugasku</strong>
                     </FormLabel>
                     <HStack spacing={4} role="radiogroup" aria-labelledby="rating">
@@ -145,34 +154,32 @@ export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, 
                     Bintang harus di isi!
                 </Text>
 
-                {
-                    !succes ? (
-                        <Button
-                            type='submit'
-                            variant='customBlue'
-                            w='100%'
-                            mt='1rem'
-                            aria-label='Kirim'
-                        >
-                            Kirim
-                        </Button>
-                    ) : (
-                        <Button
-                            type='button'
-                            variant='customBlue'
-                            w='100%'
-                            mt='1rem'
-                            aria-label='Kirim'
-                            isLoading
-                            loadingText='Loading'
-                            _hover={{bg: 'primary'}}
-                            aria-live="polite"
-                        >
-                            loading..
-                        </Button>
-                    )
-                }
+                {!success ? (
+                    <Button
+                        type='submit'
+                        variant='customBlue'
+                        w='100%'
+                        mt='1rem'
+                        aria-label='Kirim'
+                    >
+                        Kirim
+                    </Button>
+                ) : (
+                    <Button
+                        type='button'
+                        variant='customBlue'
+                        w='100%'
+                        mt='1rem'
+                        aria-label='Kirim'
+                        isLoading
+                        loadingText='Loading'
+                        _hover={{bg: 'primary'}}
+                        aria-live="polite"
+                    >
+                        loading..
+                    </Button>
+                )}
             </FormControl>
         </VStack>
     );
-}
+};

@@ -3,7 +3,7 @@ import {API_SERVICES} from "../../services/API_SERVICES.js";
 import {API_TESTIMONIALS} from "../../services/API_TESTIMONIALS.js";
 import {TestimoniForm} from "../Elements/Testimoni/TestimoniForm.jsx";
 import {TestimoniModal} from "../Elements/Testimoni/TestimoniModal.jsx";
-import {TestimoniSwiperRating} from "../Elements/Testimoni/TestimoniSwiperRating.jsx";
+import {TestimoniRatings} from "../Elements/Testimoni/TestimoniRatings.jsx";
 import {Flex, useDisclosure, VStack} from "@chakra-ui/react";
 
 export const TestimoniLayout = () => {
@@ -92,7 +92,7 @@ export const TestimoniLayout = () => {
             <Flex
                 w='100%'
                 alignItems='center'
-                justifyContent='center'
+                justifyContent={{base:'center', lg:'space-between'}}
                 flexDirection={{base: 'column', lg: 'row'}}
             >
                 <TestimoniForm
@@ -109,7 +109,7 @@ export const TestimoniLayout = () => {
                     textModal={textModal}
                 />
 
-                <TestimoniSwiperRating
+                <TestimoniRatings
                     testimonials={testimonials}
                 />
             </Flex>

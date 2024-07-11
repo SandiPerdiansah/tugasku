@@ -3,7 +3,7 @@ import {StarIcon} from "@chakra-ui/icons";
 import {TestimoniCardSekeleton} from "./TestimoniCardSekeleton.jsx";
 import {TestimoniCard} from "./TestimoniCard.jsx";
 
-export const TestimoniSwiperRating = ({testimonials}) => {
+export const TestimoniRatings = ({testimonials}) => {
     const renderTestimonialCards = (rating) => (
         testimonials.length === 0
             ? [1, 2, 3, 4].map((_, i) => (
@@ -55,12 +55,13 @@ export const TestimoniSwiperRating = ({testimonials}) => {
             >
                 Ulasan dari pelanggan kami adalah bukti kualitas layanan kami
             </Text>
-            <Box w='100%'>
-                <Tabs variant='enclosed' w='100%' aria-labelledby="testimonial-tabs">
-                    <TabList aria-label="Testimonial rating tabs">
-                        <Tab>Semua</Tab>
+            <Box w='100%' p='1rem'>
+                <Tabs variant='enclosed' w='100%' aria-labelledby="testimonial-heading" aria-label="Testimonials Tabs">
+                    <TabList role="tablist" aria-label="Testimonial rating tabs">
+                        <Tab aria-selected="true" aria-controls="panel-all">Semua</Tab>
                         {[5, 4, 3, 2, 1].map((rating) => (
-                            <Tab key={rating} aria-label={`${rating} star testimonials`}>
+                            <Tab key={rating} aria-label={`${rating} star testimonials`}
+                                 aria-controls={`panel-${rating}`}>
                                 {[...Array(rating)].map((_, i) => (
                                     <Icon
                                         key={i}
@@ -92,7 +93,7 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                             },
                         }}
                     >
-                        <TabPanel>
+                        <TabPanel id="panel-all" role="tabpanel" aria-labelledby="tab-all">
                             <Grid
                                 templateColumns={{base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)"}}
                                 gap={4}
@@ -101,26 +102,26 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                                 w='100%'
                                 role="list"
                             >
-                                {
-                                    testimonials.length === 0 ? (
-                                        [1, 2, 3, 4].map((_, i) => (
-                                            <TestimoniCardSekeleton key={i}/>
-                                        ))
-                                    ) : (
-                                        testimonials.map((data) => (
-                                                <TestimoniCard
-                                                    key={data.id}
-                                                    name={data.name}
-                                                    service={data.service}
-                                                    testimonial={data.testimoni}
-                                                    rating={data.rating}
-                                                />
-                                            )
-                                        ))}
+                                {testimonials.length === 0 ? (
+                                    [1, 2, 3, 4].map((_, i) => (
+                                        <TestimoniCardSekeleton key={i}/>
+                                    ))
+                                ) : (
+                                    testimonials.map((data) => (
+                                        <TestimoniCard
+                                            key={data.id}
+                                            name={data.name}
+                                            service={data.service}
+                                            testimonial={data.testimoni}
+                                            rating={data.rating}
+                                        />
+                                    ))
+                                )}
                             </Grid>
                         </TabPanel>
                         {[5, 4, 3, 2, 1].map((rating) => (
-                            <TabPanel key={rating}>
+                            <TabPanel key={rating} id={`panel-${rating}`} role="tabpanel"
+                                      aria-labelledby={`tab-${rating}`}>
                                 <Grid
                                     templateColumns={{base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)"}}
                                     gap={4}
