@@ -10,6 +10,7 @@ export const ServiceHeader = () => {
             justifyContent='center'
             flexDirection={{base: 'column', lg: 'row'}}
             gap={{lg:'2rem'}}
+            mt='2rem'
         >
            <Box>
                <Heading
@@ -24,7 +25,7 @@ export const ServiceHeader = () => {
                    data-aos='zoom-in'
                    data-aos-duration='1000'
                >
-                   Kami melayani berbagai jenis tugas mata kuliah dengan profesionalisme dan kualitas terbaik.
+                   Kami melayani berbagai tugas kuliah dengan profesional dan berkualitas.
                </Heading>
                <Text
                    mb='4'

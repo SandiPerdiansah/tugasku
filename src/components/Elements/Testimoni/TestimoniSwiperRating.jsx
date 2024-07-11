@@ -1,27 +1,13 @@
-import {
-    Avatar,
-    Box,
-    Grid,
-    Heading,
-    HStack,
-    Icon,
-    Skeleton,
-    SkeletonText,
-    Tab,
-    TabList,
-    TabPanel,
-    TabPanels,
-    Tabs,
-    Text,
-    VStack
-} from "@chakra-ui/react";
+import {Box, Grid, Heading, Icon, Tab, TabList, TabPanel, TabPanels, Tabs, Text, VStack} from "@chakra-ui/react";
 import {StarIcon} from "@chakra-ui/icons";
+import {TestimoniCardSekeleton} from "./TestimoniCardSekeleton.jsx";
+import {TestimoniCard} from "./TestimoniCard.jsx";
 
 export const TestimoniSwiperRating = ({testimonials}) => {
     const renderTestimonialCards = (rating) => (
         testimonials.length === 0
             ? [1, 2, 3, 4].map((_, i) => (
-                <TestimoniCardSkeleton key={i}/>
+                <TestimoniCardSekeleton key={i}/>
             ))
             : testimonials.filter((data) => data.rating === rating)
                 .map((data) => (
@@ -42,6 +28,8 @@ export const TestimoniSwiperRating = ({testimonials}) => {
             p={{lg: "1.4rem"}}
             overflow="hidden"
             maxH={{lg: '60rem'}}
+            data-aos='zoom-in'
+            data-aos-duration='1000'
         >
             <Heading
                 as="h1"
@@ -68,6 +56,7 @@ export const TestimoniSwiperRating = ({testimonials}) => {
             <Box w='100%'>
                 <Tabs variant='enclosed' w='100%'>
                     <TabList>
+                        <Tab>Semua</Tab>
                         {[5, 4, 3, 2, 1].map((rating) => (
                             <Tab key={rating}>
                                 {[...Array(rating)].map((_, i) => (
@@ -101,6 +90,32 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                             },
                         }}
                     >
+                        <TabPanel>
+                            <Grid
+                                templateColumns={{base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)"}}
+                                gap={4}
+                                justifyContent="center"
+                                mt={4}
+                                w='100%'
+                            >
+                                {
+                                    testimonials.length === 0 ? (
+                                        [1, 2, 3, 4].map((_, i) => (
+                                            <TestimoniCardSekeleton key={i}/>
+                                        ))
+                                    ) : (
+                                        testimonials.map((data) => (
+                                                <TestimoniCard
+                                                    key={data.id}
+                                                    name={data.name}
+                                                    service={data.service}
+                                                    testimonial={data.testimoni}
+                                                    rating={data.rating}
+                                                />
+                                            )
+                                        ))}
+                            </Grid>
+                        </TabPanel>
                         {[5, 4, 3, 2, 1].map((rating) => (
                             <TabPanel key={rating}>
                                 <Grid
@@ -120,70 +135,3 @@ export const TestimoniSwiperRating = ({testimonials}) => {
         </VStack>
     );
 };
-
-const TestimoniCard = ({name, service, testimonial, rating}) => (
-    <VStack
-        borderRadius="xl"
-        p="2rem 1rem"
-        w="100%"
-        aria-labelledby={`testimonial-${name}`}
-        bg='#f7f9fa'
-        data-aos='zoom-in'
-        data-aos-duration='1000'
-    >
-        <VStack>
-            <Avatar name={name} size='lg' aria-hidden="true"/>
-            <Heading
-                as="h4"
-                fontSize={{base: "lg", lg: "xl"}}
-                id={`testimonial-${name}`}
-                mt={{base: '0.5rem', lg: '0'}}
-            >
-                {name}
-            </Heading>
-            <Text color="font" fontSize="sm">
-                {service === 'Jasa dll' ? 'Lainya' : service}
-            </Text>
-        </VStack>
-        <Text
-            color="font"
-            fontSize={{base: "sm", lg: "md"}}
-            textAlign="center"
-            mt='0.5rem'
-        >
-            {testimonial}
-        </Text>
-        <HStack mt={4} role="img" aria-label={`Rating: ${rating} out of 5`}>
-            {[...Array(5)].map((_, i) => (
-                <Icon
-                    key={i}
-                    as={StarIcon}
-                    color={i < rating ? "yellow.500" : "gray.300"}
-                />
-            ))}
-        </HStack>
-    </VStack>
-);
-
-const TestimoniCardSkeleton = () => (
-    <VStack
-        borderRadius="xl"
-        p="2rem 1rem"
-        w="100%"
-        aria-busy="true"
-        data-aos='zoom-in'
-        data-aos-duration='1000'
-    >
-        <VStack>
-            <Skeleton circle size={{base: "md", lg: "lg"}} aria-hidden="true"/>
-            <Skeleton height="20px" width="60%" aria-hidden="true"/>
-            <Skeleton height="10px" width="40%" mt="-0.5rem" aria-hidden="true"/>
-        </VStack>
-        <SkeletonText mt="4" noOfLines={4} spacing="4"/>
-        <HStack mt={4}>
-            {[...Array(5)].map((_, i) => (
-                <Skeleton key={i} height="20px" width="20px"/>
-            ))}
-        </HStack>
-    </VStack>
-);

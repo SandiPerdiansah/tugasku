@@ -6,6 +6,8 @@ import {ServiceLayout} from "./ServiceLayout.jsx";
 import {TestimoniLayout} from "./TestimoniLayout.jsx";
 import {HowToOrderLayouts} from "./HowToOrderLayouts.jsx";
 import {Footer} from "../Elements/Footer/index.jsx";
+import {FaqLayout} from "./FaqLayout.jsx";
+import {ContactsLayout} from "./ContactsLayout.jsx";
 
 export const HomeLayout = () => {
     return (
@@ -26,8 +28,10 @@ export const HomeLayout = () => {
 
             <AboutLayout/>
             <ServiceLayout/>
-            <HowToOrderLayouts/>
             <TestimoniLayout/>
+            <FaqLayout/>
+            <ContactsLayout/>
+            <HowToOrderLayouts/>
             <Footer/>
         </>
     );

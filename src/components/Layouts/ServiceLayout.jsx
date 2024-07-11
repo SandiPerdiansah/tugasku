@@ -46,10 +46,7 @@ export const ServiceLayout = () => {
                     data-aos='zoom-in'
                     data-aos-duration='1000'
                 >
-                    Tag di atas adalah beberapa tugas yang kami layani. Dari makalah, esai, hingga proyek besar, tim
-                    ahli kami siap membantu Anda. Jelajahi tag untuk menemukan layanan yang tepat dan dapatkan solusi
-                    terbaik untuk kebutuhan akademis Anda. Kami berkomitmen pada kualitas dan ketepatan waktu untuk
-                    memastikan hasil terbaik dalam setiap tugas.
+                    Tag di atas adalah tugas yang kami layani. Jelajahi tag untuk menemukan layanan yang tepat. Kami berkomitmen pada kualitas dan ketepatan waktu.
                 </Text>
             </Box>
         </VStack>
