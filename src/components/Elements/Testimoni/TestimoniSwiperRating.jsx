@@ -23,6 +23,7 @@ export const TestimoniSwiperRating = ({testimonials}) => {
 
     return (
         <VStack
+            aria-labelledby="testimonial-heading"
             mt={{base: '1rem', lg: 0}}
             flexBasis={{base: '100%', lg: "60%"}}
             p={{lg: "1.4rem"}}
@@ -32,6 +33,7 @@ export const TestimoniSwiperRating = ({testimonials}) => {
             data-aos-duration='1000'
         >
             <Heading
+                id="testimonial-heading"
                 as="h1"
                 fontWeight="bold"
                 fontSize={{base: "2xl", lg: "4xl"}}
@@ -54,11 +56,11 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                 Ulasan dari pelanggan kami adalah bukti kualitas layanan kami
             </Text>
             <Box w='100%'>
-                <Tabs variant='enclosed' w='100%'>
-                    <TabList>
+                <Tabs variant='enclosed' w='100%' aria-labelledby="testimonial-tabs">
+                    <TabList aria-label="Testimonial rating tabs">
                         <Tab>Semua</Tab>
                         {[5, 4, 3, 2, 1].map((rating) => (
-                            <Tab key={rating}>
+                            <Tab key={rating} aria-label={`${rating} star testimonials`}>
                                 {[...Array(rating)].map((_, i) => (
                                     <Icon
                                         key={i}
@@ -97,6 +99,7 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                                 justifyContent="center"
                                 mt={4}
                                 w='100%'
+                                role="list"
                             >
                                 {
                                     testimonials.length === 0 ? (
@@ -124,6 +127,7 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                                     justifyContent="center"
                                     mt={4}
                                     w='100%'
+                                    role="list"
                                 >
                                     {renderTestimonialCards(rating)}
                                 </Grid>
