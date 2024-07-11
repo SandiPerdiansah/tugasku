@@ -1,22 +1,11 @@
 import {useEffect, useRef, useState} from "react";
-import {Link, NavLink} from "react-router-dom";
 import {HamburgerIcon} from "@chakra-ui/icons";
-import {
-    Box,
-    Button,
-    Collapse,
-    HStack,
-    IconButton,
-    Image,
-    Spacer,
-    Stack,
-    Text,
-    useBreakpointValue,
-    useDisclosure
-} from "@chakra-ui/react";
-import {data} from "../services/data.js";
+import {Box, Collapse, HStack, IconButton, Spacer, Stack, useBreakpointValue, useDisclosure} from "@chakra-ui/react";
+import {NavbarBand} from "./NavbarBrand.jsx";
+import {NavbarLink} from "./NavbarLink.jsx";
+import {NavbarButton} from "./NavbarButton.jsx"
 
-export default function Navbar() {
+export const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const navRef = useRef();
@@ -133,67 +122,3 @@ export default function Navbar() {
         </Box>
     );
 }
-
-const NavbarBand = () => {
-    return (
-        <Link to='/' aria-label='Home'>
-            <HStack as='figure' spacing='1px'>
-                <Image
-                    boxSize={{base: '30px', lg: '40px'}}
-                    borderRadius='full'
-                    src='/assets/images/logo.png'
-                    alt='Tugasku Logo'
-                    objectFit='cover'
-                />
-                <Text
-                    as='figcaption'
-                    fontSize={{sm: 'xs', lg: 'xl'}}
-                    fontWeight='bold'
-                    color='#3182ce'
-                >
-                    Tugasku
-                </Text>
-            </HStack>
-        </Link>
-    );
-};
-
-const NavbarLink = ({onClick}) => {
-    return (
-        <Stack
-            className='navbar_link'
-            fontSize='1rem'
-            me={{lg: '1rem'}}
-            spacing={{base: '0.8rem', lg: '1.5rem'}}
-            direction={{base: 'column', lg: 'row'}}
-        >
-            {
-                data.navbar.map((item) => (
-                    <NavLink to={item.path} aria-label={item.teks} onClick={onClick} key={item.id}>
-                        {item.teks}
-                    </NavLink>
-                ))
-            }
-        </Stack>
-    );
-};
-
-const NavbarButton = () => {
-    return (
-        <Button
-            as={Link}
-            to='order'
-            target='_blank'
-            colorScheme='blue'
-            size='sm'
-            rel='noopener noreferrer'
-            aria-label='Order via WhatsApp'
-            role='button'
-            borderRadius='20px'
-            p='1.2rem 1rem'
-            mt={{base: '1rem', lg: '0'}}
-        >
-            Order Sekarang
-        </Button>
-    );
-};

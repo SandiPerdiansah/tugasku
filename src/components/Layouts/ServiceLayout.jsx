@@ -1,0 +1,57 @@
+import {Box, Text, VStack} from "@chakra-ui/react";
+import {ServiceHeader} from "../Elements/Service/ServiceHeader.jsx";
+import {ServiceList} from "../Elements/Service/ServiceList.jsx";
+import {useEffect, useState} from "react";
+import {API_SERVICES} from "../../services/API_SERVICES.js";
+
+export const ServiceLayout = () => {
+    const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = await API_SERVICES();
+                setServices(response.services);
+                setLoading(false);
+            } catch (error) {
+                console.error(`Error: ${error.message}`);
+                setLoading(false);
+            }
+        })();
+    }, []);
+
+    return (
+        <VStack
+            as='section'
+            w='100%'
+            alignItems='center'
+            role='region'
+            aria-labelledby='service-layout-heading'
+        >
+            <ServiceHeader/>
+            <ServiceList
+                services={services}
+                loading={loading}
+            />
+            <Box
+                p={{base: '2rem 1.4rem', lg: '2rem 4rem'}}
+                mt={{base: '-3rem', lg: '-4rem'}}
+            >
+                <Text
+                    color='font'
+                    fontSize={{base: '1rem', lg: 'lg'}}
+                    lineHeight={1.7}
+                    textAlign='center'
+                    data-aos='zoom-in'
+                    data-aos-duration='1000'
+                >
+                    Tag di atas adalah beberapa tugas yang kami layani. Dari makalah, esai, hingga proyek besar, tim
+                    ahli kami siap membantu Anda. Jelajahi tag untuk menemukan layanan yang tepat dan dapatkan solusi
+                    terbaik untuk kebutuhan akademis Anda. Kami berkomitmen pada kualitas dan ketepatan waktu untuk
+                    memastikan hasil terbaik dalam setiap tugas.
+                </Text>
+            </Box>
+        </VStack>
+    )
+}

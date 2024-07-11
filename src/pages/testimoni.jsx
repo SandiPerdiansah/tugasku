@@ -1,7 +1,7 @@
-import TestimoniLayout from "../layouts/TestimoniLayout.jsx";
+import {TestimoniLayout} from "../components/Layouts/TestimoniLayout.jsx";
 
-export default function TestimoniPage(){
-    return(
+export const TestimoniPage = () => {
+    return (
         <TestimoniLayout/>
     )
 }

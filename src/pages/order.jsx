@@ -1,5 +1,5 @@
-export default function OrderPage() {
-    return(
+export const OrderPage = () => {
+    return (
         <div>Order</div>
     )
 }

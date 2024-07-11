@@ -1,6 +1,6 @@
-import HomeLayout from "../layouts/HomeLayout.jsx";
+import {HomeLayout} from "../components/Layouts/HomeLayout.jsx";
 
-export default function HomePage(){
+export const HomePage =()=>{
     return(
         <HomeLayout/>
     )

@@ -1,7 +1,7 @@
-import AboutLayout from "../layouts/AboutLayout.jsx";
+import {AboutLayout} from "../components/Layouts/AboutLayout.jsx";
 
-export default function AboutPage() {
-    return(
-       <AboutLayout/>
+export const AboutPage = () => {
+    return (
+        <AboutLayout/>
     )
 }

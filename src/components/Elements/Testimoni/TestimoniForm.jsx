@@ -1,7 +1,7 @@
+import {useEffect, useState} from "react";
+import {API_SERVICES} from "../../../services/API_SERVICES.js";
 import {
-    Box,
-    Button,
-    Flex,
+    Box, Button,
     FormControl,
     FormLabel,
     Heading,
@@ -13,110 +13,9 @@ import {
     Textarea,
     VStack
 } from "@chakra-ui/react";
-import {useEffect, useState} from "react";
-import {API_SERVICES} from "../services/API_SERVICES.js";
 import {StarIcon} from "@chakra-ui/icons";
-import {API_TESTIMONIALS} from "../services/API_TESTIMONIALS.js";
 
-export default function TestimoniLayout() {
-    const request = API_TESTIMONIALS;
-
-    const [clickedStars, setClickedStars] = useState(0);
-    const [succesSubmit, setSuccesSubmit] = useState(false);
-    const [isAlert, setIsAlert] = useState(false);
-    const [testimonials, setTestimonials] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const response = await request.getTestimonials();
-                response.testimonials.reverse();
-                setTestimonials(response.testimonials);
-            } catch (e) {
-                console.log(`Error: ${e.message}`);
-            }
-        })();
-
-    }, []);
-
-    const handleSubmitForm = async (e) => {
-        e.preventDefault();
-
-        const capitalizeWords = (str) => {
-            return str.replace(/\b\w/g, char => char.toUpperCase());
-        };
-
-        if (clickedStars === 0) {
-            setIsAlert(true);
-            return;
-        }
-
-        setSuccesSubmit(true);
-
-        try {
-            const response = await API_SERVICES();
-            const token = response.services.map((data) => data.token);
-
-            const newTestimoni = {
-                id: +new Date(),
-                name: capitalizeWords(e.target.fullName.value),
-                service: `Jasa ${e.target.service.value}`,
-                testimoni: e.target.testimoni.value,
-                token: token.find((data) => data === e.target.token.value),
-                rating: clickedStars,
-            };
-
-            if (newTestimoni.token) {
-                setTestimonials([newTestimoni, ...testimonials]);
-                alert('Berhasil mengirim penilaian');
-                await request.postTestimonial(newTestimoni);
-            } else {
-                console.log('Token salah');
-            }
-        } catch (e) {
-            console.log(`Error: ${e.message}`);
-        } finally {
-            e.target.fullName.value = '';
-            e.target.service.value = '';
-            e.target.testimoni.value = '';
-            e.target.token.value = '';
-
-            setClickedStars(0);
-            setIsAlert(false);
-            setSuccesSubmit(false);
-        }
-    };
-
-    return (
-        <VStack
-            as='section'
-            w='100%'
-            minH='100vh'
-            p={{base: '8rem 1.4rem 4rem', lg: '8rem 4rem'}}
-        >
-            <Flex
-                w='100%'
-                alignItems='center'
-                justifyContent='center'
-                flexDirection={{base: 'column', lg: 'row'}}
-            >
-                <TestimoniForm
-                    handleSubmitForm={handleSubmitForm}
-                    clickedStars={clickedStars}
-                    setClickedStars={setClickedStars}
-                    succes={succesSubmit}
-                    isAlert={isAlert}
-                />
-                <VStack
-                    flexBasis='50%'
-                >
-                </VStack>
-            </Flex>
-        </VStack>
-    );
-}
-
-const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes, isAlert}) => {
+export const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes, isAlert}) => {
     const [selectService, setSelectService] = useState([]);
     const [hoveredStars, setHoveredStars] = useState(0);
 
@@ -135,7 +34,7 @@ const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes,
     return (
         <VStack
             flexBasis='50%'
-            p={{base:'1.4rem', lg: '4rem'}}
+            p={{base: '1.4rem', lg: '4rem'}}
             shadow='md'
             borderRadius='lg'
         >
@@ -158,19 +57,19 @@ const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes,
                 Token didapatkan setelah anda selesai melakukan order Jasa di <strong>Tugasku</strong>
             </Text>
 
-            <FormControl as='form' isRequired onSubmit={(e) => handleSubmitForm(e)}>
+            <FormControl as='form' isRequired onSubmit={(e) => handleSubmitForm(e)} aria-labelledby="form-title">
                 <Box>
                     <FormLabel htmlFor='fullName'>Nama Lengkap</FormLabel>
                     <Input
                         id='fullName'
                         name='fullName'
-                        placeholder='Nama Lengkap'
+                        placeholder='John Doe'
                         aria-label='Nama Lengkap'
                         aria-required='true'
                     />
                 </Box>
                 <Box mt='1rem'>
-                    <FormLabel htmlFor='service'>Tag Layanan</FormLabel>
+                    <FormLabel htmlFor='service'>Tag order</FormLabel>
                     <Select
                         id='service'
                         name='service'
@@ -193,7 +92,7 @@ const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes,
                     <Input
                         id='token'
                         name='token'
-                        placeholder='Kode Token'
+                        placeholder='contoh: X4ZW'
                         aria-label='Kode Token'
                         aria-required='true'
                         maxLength={4}
@@ -205,7 +104,7 @@ const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes,
                     <Textarea
                         id='testimoni'
                         name='testimoni'
-                        placeholder='Penilaian anda terhadap jasa order di Tugasku'
+                        placeholder='berikan penilaian anda...'
                         size='sm'
                         aria-label='Testimoni'
                         aria-required='true'
@@ -214,9 +113,9 @@ const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes,
                 </Box>
                 <VStack mt='1rem' border='1px solid #ddd' p='1rem' borderRadius='lg'>
                     <FormLabel htmlFor='rating' textAlign='center'>
-                        Berikan bintang sebagai tingkat kepuasan order di <strong>Jasaku</strong>
+                        Berikan bintang sebagai tingkat kepuasan order di <strong>Tugasku</strong>
                     </FormLabel>
-                    <HStack spacing={4}>
+                    <HStack spacing={4} role="radiogroup" aria-labelledby="rating">
                         {[1, 2, 3, 4, 5].map((star) => (
                             <Icon
                                 key={star}
@@ -227,7 +126,8 @@ const TestimoniForm = ({handleSubmitForm, clickedStars, setClickedStars, succes,
                                 onMouseLeave={() => setHoveredStars(0)}
                                 onClick={() => setClickedStars(star)}
                                 _hover={{cursor: 'pointer'}}
-                                role="button"
+                                role="radio"
+                                aria-checked={clickedStars === star}
                                 aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
                             />
                         ))}

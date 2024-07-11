@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar.jsx";
 import {Outlet, useLocation} from "react-router-dom";
-import Footer from "../components/Footer.jsx";
+import {Navbar} from "../Elements/Navbar/index.jsx";
+import {Footer} from "../Elements/Footer/index.jsx";
 
-export default function RootLayout() {
+export const RootLayout = () => {
     const location = useLocation();
 
     return (

@@ -1,7 +1,7 @@
-import ServiveLayout from "../layouts/ServiveLayout.jsx";
+import {ServiceLayout} from "../components/Layouts/ServiceLayout.jsx";
 
-export default function ServicePage(){
-    return(
-        <ServiveLayout/>
+export const ServicePage = () => {
+    return (
+        <ServiceLayout/>
     )
 }
