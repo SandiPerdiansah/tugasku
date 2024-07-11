@@ -50,6 +50,8 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                 color="primary"
                 textAlign={{base: "center", lg: "start"}}
                 mt={{base: 4, lg: 0}}
+                data-aos='zoom-in'
+                data-aos-duration='1000'
             >
                 Testimoni
             </Heading>
@@ -58,6 +60,8 @@ export const TestimoniSwiperRating = ({testimonials}) => {
                 fontSize={{base: "1rem", lg: "lg"}}
                 lineHeight={1.7}
                 textAlign="center"
+                data-aos='zoom-in'
+                data-aos-duration='1000'
             >
                 Ulasan dari pelanggan kami adalah bukti kualitas layanan kami
             </Text>
@@ -124,6 +128,8 @@ const TestimoniCard = ({name, service, testimonial, rating}) => (
         w="100%"
         aria-labelledby={`testimonial-${name}`}
         bg='#f7f9fa'
+        data-aos='zoom-in'
+        data-aos-duration='1000'
     >
         <VStack>
             <Avatar name={name} size='lg' aria-hidden="true"/>
@@ -160,7 +166,14 @@ const TestimoniCard = ({name, service, testimonial, rating}) => (
 );
 
 const TestimoniCardSkeleton = () => (
-    <VStack borderRadius="xl" p="2rem 1rem" w="100%" aria-busy="true">
+    <VStack
+        borderRadius="xl"
+        p="2rem 1rem"
+        w="100%"
+        aria-busy="true"
+        data-aos='zoom-in'
+        data-aos-duration='1000'
+    >
         <VStack>
             <Skeleton circle size={{base: "md", lg: "lg"}} aria-hidden="true"/>
             <Skeleton height="20px" width="60%" aria-hidden="true"/>
