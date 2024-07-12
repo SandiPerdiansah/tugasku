@@ -1,8 +1,8 @@
-import {Button, Heading, HStack, Text, VStack} from "@chakra-ui/react";
+import {Button, Heading, Highlight, HStack, Text, VStack} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 
 export const HomeFooter = () => {
-    return(
+    return (
         <VStack
             align={{base: 'center', lg: 'flex-start'}}
             spacing={6}
@@ -24,8 +24,14 @@ export const HomeFooter = () => {
                 lineHeight={1.7}
                 className='animate__animated animate__fadeInDown animate__delay-1s'
             >
-                <strong>Tugasku</strong> adalah mitra terpercaya untuk menyelesaikan berbagai tugas kuliah
-                dengan cepat dan efisien.
+                <Highlight
+                    query={['Tugasku', 'cepat', 'efisien']}
+                    styles={{px: '2', py: '1', bg: 'yellow.200', rounded: 'md'}}
+
+                >
+                    Tugasku adalah mitra terpercaya untuk menyelesaikan berbagai tugas kuliah
+                    dengan cepat dan efisien.
+                </Highlight>
             </Text>
             <HStack
                 role='group'

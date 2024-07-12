@@ -4,10 +4,10 @@ import {HomeFooter} from "../Elements/Home/HomeFooter.jsx";
 import {AboutLayout} from "./AboutLayout.jsx";
 import {ServiceLayout} from "./ServiceLayout.jsx";
 import {TestimoniLayout} from "./TestimoniLayout.jsx";
-import {HowToOrderLayouts} from "./HowToOrderLayouts.jsx";
+import {HowToOrderLayout} from "./HowToOrderLayout.jsx";
 import {Footer} from "../Elements/Footer/index.jsx";
 import {FaqLayout} from "./FaqLayout.jsx";
-import {ContactsLayout} from "./ContactsLayout.jsx";
+import {ContactLayout} from "./ContactLayout.jsx";
 
 export const HomeLayout = () => {
     return (
@@ -30,8 +30,8 @@ export const HomeLayout = () => {
             <ServiceLayout/>
             <TestimoniLayout/>
             <FaqLayout/>
-            <ContactsLayout/>
-            <HowToOrderLayouts/>
+            <ContactLayout/>
+            <HowToOrderLayout/>
             <Footer/>
         </>
     );

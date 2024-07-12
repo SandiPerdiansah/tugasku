@@ -1,8 +1,8 @@
-import {Box, Text, VStack} from "@chakra-ui/react";
-import {ServiceHeader} from "../Elements/Service/ServiceHeader.jsx";
-import {ServiceList} from "../Elements/Service/ServiceList.jsx";
-import {useEffect, useState} from "react";
-import {API_SERVICES} from "../../services/API_SERVICES.js";
+import { Box, Text, VStack, Highlight } from "@chakra-ui/react";
+import { ServiceHeader } from "../Elements/Service/ServiceHeader.jsx";
+import { ServiceList } from "../Elements/Service/ServiceList.jsx";
+import { useEffect, useState } from "react";
+import { API_SERVICES } from "../../services/API_SERVICES.js";
 
 export const ServiceLayout = () => {
     const [services, setServices] = useState([]);
@@ -29,24 +29,29 @@ export const ServiceLayout = () => {
             role='region'
             aria-labelledby='service-layout-heading'
         >
-            <ServiceHeader/>
+            <ServiceHeader />
             <ServiceList
                 services={services}
                 loading={loading}
             />
             <Box
-                p={{base: '2rem 1.4rem', lg: '2rem 4rem'}}
-                mt={{base: '-3rem', lg: '-4rem'}}
+                p={{ base: '2rem 1.4rem', lg: '2rem 4rem' }}
+                mt={{ base: '-3rem', lg: '-4rem' }}
             >
                 <Text
                     color='font'
-                    fontSize={{base: '1rem', lg: 'lg'}}
+                    fontSize={{ base: '1rem', lg: 'lg' }}
                     lineHeight={1.7}
                     textAlign='center'
                     data-aos='zoom-in'
                     data-aos-duration='1000'
                 >
-                    Tag di atas adalah tugas yang kami layani. Jelajahi tag untuk menemukan layanan yang tepat. Kami berkomitmen pada kualitas dan ketepatan waktu.
+                    <Highlight
+                        query={['Tag di atas', 'berkomitmen', 'kualitas', 'ketepatan waktu']}
+                        styles={{ px: '2', py: '1', bg: 'yellow.200', rounded: 'md' }}
+                    >
+                        Tag di atas adalah tugas yang kami layani. Jelajahi tag untuk menemukan layanan yang tepat. Kami berkomitmen pada kualitas dan ketepatan waktu.
+                    </Highlight>
                 </Text>
             </Box>
         </VStack>

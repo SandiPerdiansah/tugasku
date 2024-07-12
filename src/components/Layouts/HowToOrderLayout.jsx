@@ -1,9 +1,9 @@
 import {Flex} from "@chakra-ui/react";
 
-export const ContactsLayout = () => {
+export const HowToOrderLayout = () => {
     return (
         <Flex as='section' w='100%' h='100vh' alignItems='center' justifyContent='center'>
-            <h1>Contact</h1>
+            <h1>Order</h1>
         </Flex>
     )
 }

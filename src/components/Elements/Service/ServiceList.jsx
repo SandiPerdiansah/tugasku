@@ -1,7 +1,6 @@
 import {Box, Grid, Heading, Skeleton, Stack, Text} from "@chakra-ui/react";
 
 export const ServiceList = ({services, loading}) => {
-
     return (
         <Box
             w='100%'
@@ -49,9 +48,9 @@ export const ServiceList = ({services, loading}) => {
                         </Box>
                     ))
                 ) : (
-                    services.map((service) => (
+                    services.map((service, index) => (
                         <Box
-                            key={service.token}
+                            key={index}
                             p='4'
                             borderWidth='1px'
                             borderRadius='lg'

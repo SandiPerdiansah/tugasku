@@ -1,7 +1,7 @@
-import {HowToOrderLayouts} from "../components/Layouts/HowToOrderLayouts.jsx";
+import {HowToOrderLayout} from "../components/Layouts/HowToOrderLayout.jsx";
 
 export const HowToOrderPage = () => {
     return (
-        <HowToOrderLayouts/>
+        <HowToOrderLayout/>
     )
 }

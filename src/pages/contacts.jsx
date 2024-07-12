@@ -1,7 +1,7 @@
-import {ContactsLayout} from "../components/Layouts/ContactsLayout.jsx";
+import {ContactLayout} from "../components/Layouts/ContactLayout.jsx";
 
 export const ContactsPage = () => {
     return(
-        <ContactsLayout/>
+        <ContactLayout/>
     )
 }
