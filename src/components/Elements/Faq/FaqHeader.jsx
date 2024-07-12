@@ -1,7 +1,7 @@
-import {Box, Heading, Highlight, Text} from "@chakra-ui/react";
+import {Box, Heading, Text} from "@chakra-ui/react";
 
 export const FaqHeader = () => {
-    return(
+    return (
         <Box
             textAlign='center'
             data-aos='zoom-in'
@@ -22,12 +22,7 @@ export const FaqHeader = () => {
                 fontSize={{base: '1rem', lg: 'lg'}}
                 lineHeight={1.7}
             >
-                <Highlight
-                    query={['jawaban']}
-                    styles={{px: '2', py: '1', bg: 'yellow.200', rounded: 'md'}}
-                >
-                    Temukan jawaban untuk pertanyaan-pertanyaan umum yang sering diajukan oleh pelanggan kami
-                </Highlight>
+                Temukan jawaban untuk pertanyaan-pertanyaan umum yang sering diajukan oleh pelanggan kami
             </Text>
         </Box>
     )

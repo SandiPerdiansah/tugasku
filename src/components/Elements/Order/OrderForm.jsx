@@ -96,7 +96,7 @@ export const OrderForm = () => {
                 >
                     <FormLabel htmlFor='service'>Layanan</FormLabel>
                     <Select
-                        placeholder='Pilih Jasa'
+                        placeholder='Pilih jasa order'
                         w={{base: '100%', lg: '80%'}}
                         ms='auto'
                         id='service'

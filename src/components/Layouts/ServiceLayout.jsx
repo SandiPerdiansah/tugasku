@@ -47,7 +47,7 @@ export const ServiceLayout = () => {
                     data-aos-duration='1000'
                 >
                     <Highlight
-                        query={['Tag di atas', 'berkomitmen', 'kualitas', 'ketepatan waktu']}
+                        query={['kualitas', 'ketepatan waktu']}
                         styles={{ px: '2', py: '1', bg: 'yellow.200', rounded: 'md' }}
                     >
                         Tag di atas adalah tugas yang kami layani. Jelajahi tag untuk menemukan layanan yang tepat. Kami berkomitmen pada kualitas dan ketepatan waktu.

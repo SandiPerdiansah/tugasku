@@ -1,6 +1,6 @@
 import {Box, Heading, Highlight, Text} from "@chakra-ui/react";
 
-export const TestimoniHeader = () => {
+export const HowToOrderHeader = () => {
     return (
         <Box
             textAlign='center'
@@ -13,9 +13,8 @@ export const TestimoniHeader = () => {
                 fontSize={{base: '2xl', lg: '4xl'}}
                 color='primary'
                 lineHeight={1.7}
-                id="about-heading"
             >
-                Testimoni
+                Cara Order
             </Heading>
             <Text
                 color='font'
@@ -23,11 +22,10 @@ export const TestimoniHeader = () => {
                 lineHeight={1.7}
             >
                 <Highlight
-                    query={['puas', 'terbaik']}
+                    query={['tugasku']}
                     styles={{px: '2', py: '1', bg: 'yellow.200', rounded: 'md'}}
                 >
-                    Pengalaman tak terlupakan dan puas dengan layanan kami. Ulasan pelanggan kami selalu luar biasa.
-                    Bergabunglah dan buktikan kualitas terbaik yang kami tawarkan!
+                    Merupakan tata cara order jasa Tugasku melalui website official resmi
                 </Highlight>
             </Text>
         </Box>

@@ -4,12 +4,12 @@ export const AboutHeader = () => {
     return (
         <Stack
             w='100%'
-            h='100vh'
+            h={{lg:'100vh'}}
             alignItems='center'
             justifyContent='center'
             direction={{ base: 'column', lg: 'row' }}
             spacing={{ base: 2, lg: 14 }}
-            p={{ base: '2rem 1.4rem', lg: '2rem 4rem' }}
+            p={{ base: '4rem 1.4rem', lg: '2rem 4rem' }}
             aria-labelledby="about-heading"
         >
             <Image
@@ -42,7 +42,7 @@ export const AboutHeader = () => {
                     lineHeight={1.7}
                 >
                     <Highlight
-                        query={['Tugasku', 'cepat', 'efisien', 'para ahli']}
+                        query={['Tugasku', 'cepat', 'efisien', 'terbaik']}
                         styles={{ px: '2', py: '1', bg: 'yellow.200', rounded: 'md' }}
                     >
                         {"Tugasku adalah layanan profesional yang berdedikasi untuk membantu menyelesaikan berbagai tugas kuliah dengan cepat dan efisien. Didirikan pada tahun 2024, kami terus berkembang dalam menyediakan jasa joki tugas dengan kualitas terbaik."}

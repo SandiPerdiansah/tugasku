@@ -10,7 +10,7 @@ export const ServiceHeader = () => {
             justifyContent='center'
             flexDirection={{base: 'column', lg: 'row'}}
             gap={{lg: '2rem'}}
-            mt='2rem'
+            mt={{base:'4rem', lg:'2rem'}}
         >
             <Box>
                 <Heading
